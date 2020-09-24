@@ -1,0 +1,29 @@
+<!-- <p>
+  my name is :{{name}}
+</p>
+<p>
+  I am {{age}} years old
+</p>
+<label>Add an item:<input #newItem></label>
+<button (click)="addNewItem(newItem.value)">Add to parent's</button> -->
+<table mat-table [dataSource]="dataSource" matSort matSortStart="desc" class="mat-elevation-z8">
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+    <td mat-cell *matCellDef="let employee"> {{employee.firstName}} </td>
+  </ng-container>
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <td mat-cell *matCellDef="let employee">
+      <button mat-icon-button color="warn" (click)="deleteDepartement(employee.id)">
+        <mat-icon class="mat-18">delete</mat-icon>
+      </button>&nbsp;&nbsp;
+      <button mat-icon-button color="warn" (click)="openCreateUpdateModal(addUpdate,'update',employee.id)">
+        <mat-icon class="mat-18">edit</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [length]="5" [pageSize]="5" [pageSizeOptions]="[5, 10, 25]">
+</mat-paginator>

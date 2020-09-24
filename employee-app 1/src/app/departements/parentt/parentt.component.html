@@ -1,0 +1,11 @@
+<!-- <app-childd [name]="currentItem"></app-childd> -->
+
+<!-- <app-childd (newitemEvent)="addItem($event)"></app-childd> -->
+
+<!-- <ul>
+  <li *ngFor="let item of items">{{item}}</li>
+</ul> -->
+
+<app-childd (add)="openCreateUpdateModal(event)"></app-childd>
+<!-- <app-childd (update)="openCreateUpdateModal(event)"></app-childd>
+<app-childd (delete)="openCreateUpdateModal(event)"></app-childd> -->

@@ -1,0 +1,30 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="600px" fxFlex.xs="100%">
+    <mat-card-title>Create a new Departement</mat-card-title>
+
+    <form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="onSubmit(registerForm)"
+      fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="20px">
+      <mat-toolbar color="primary" [style.display]="submitted ? 'block' : 'none'">
+        <div class="md-toolbar-tools" style="display: inline-block">
+          Ajout effectué avec success
+          <span flex></span>
+        </div>
+      </mat-toolbar>
+      <mat-card-content>
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Employe first name" formControlName="firstName" id="firstName">
+            <!--mat-hint align="end">Not more then 60 characters long.</mat-hint-->
+            <mat-error *ngIf="hasError('firstName', 'required')">Name is required</mat-error>
+            <mat-error *ngIf="hasError('firstName', 'maxlength')">You have more than 60 characters</mat-error>
+          </mat-form-field>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+      </mat-card-content>
+      <mat-card-actions align="center">
+        <button mat-raised-button color="primary" [disabled]="!registerForm.valid">Create</button>&nbsp;&nbsp;
+        <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</section>
